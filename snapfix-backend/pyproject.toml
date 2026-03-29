@@ -30,6 +30,7 @@ dependencies = [
     "pydantic>=2.6.0",
     "aiofiles>=23.2.0",
     "toml>=0.10.2",
+    "python-dotenv>=1.0.1",
 ]
 
 [project.optional-dependencies]
