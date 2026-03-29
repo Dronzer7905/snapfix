@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/fastapi/routing.py", line 161, in app
+    await run_endpoint_function(dependant=dependant, values=values, is_coroutine=is_coroutine)
+  File "/usr/local/lib/python3.11/site-packages/fastapi/routing.py", line 114, in run_endpoint_function
+    return await dependant.call(**values)
+  File "/home/user/myapi/routers/items.py", line 55, in create_item
+    raise ValueError(f"Price must be positive, got {item.price}")
+ValueError: Price must be positive, got -5.0

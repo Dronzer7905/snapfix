@@ -1,0 +1,242 @@
+/*
+ * pylogai-vscode/webview/styles.css
+ *
+ * Terminal CLI Theme for PyLogAI.
+ * Inspired by classic CRT terminals and modern developer consoles.
+ * High contrast, monospaced, and data-dense.
+ */
+
+:root {
+  --term-bg: #0c0c0c;
+  --term-text: #cccccc;
+  --term-green: #4af626;
+  --term-dim-green: #1a4d1a;
+  --term-amber: #ffb000;
+  --term-dim-amber: #4d3300;
+  --term-red: #ff5555;
+  --term-border: #333333;
+  --font-mono: "JetBrains Mono", "Cascadia Code", "Fira Code", "Courier New", monospace;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--term-text);
+  background-color: var(--term-bg);
+  line-height: 1.5;
+  padding: 16px;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* ── Scanline Effect ── */
+body::before {
+  content: " ";
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+  z-index: 1000;
+  background-size: 100% 2px, 3px 100%;
+  pointer-events: none;
+}
+
+/* ── Header ── */
+.terminal-header {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 2px solid var(--term-border);
+  padding-bottom: 8px;
+  margin-bottom: 24px;
+  font-weight: bold;
+}
+
+.terminal-header__status {
+  color: var(--term-green);
+}
+
+.terminal-header__logo {
+  color: var(--term-text);
+  opacity: 0.6;
+}
+
+/* ── Main Content ── */
+.terminal-main {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.term-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.term-section__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.term-section__title {
+  font-size: 14px;
+  color: var(--term-amber);
+  background: var(--term-dim-amber);
+  padding: 2px 8px;
+  width: fit-content;
+}
+
+/* ── Traceback ── */
+.term-error-summary {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  border-left: 3px solid var(--term-red);
+  padding-left: 12px;
+  margin-bottom: 8px;
+}
+
+.term-error-type {
+  font-size: 16px;
+  font-weight: bold;
+  color: var(--term-red);
+}
+
+.term-error-at {
+  color: #888;
+  font-size: 12px;
+}
+
+.term-traceback-details {
+  background: #111;
+  border: 1px solid var(--term-border);
+}
+
+.term-traceback-details summary {
+  padding: 6px 10px;
+  cursor: pointer;
+  background: #1a1a1a;
+  color: #666;
+  font-size: 11px;
+  user-select: none;
+}
+
+.term-traceback {
+  padding: 12px;
+  font-size: 11px;
+  color: #999;
+  overflow-x: auto;
+  white-space: pre;
+}
+
+/* ── Analysis & Prevention ── */
+.term-explanation, .term-prevention {
+  border: 1px dashed var(--term-border);
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.02);
+  color: #ddd;
+}
+
+/* ── Code Blocks ── */
+.term-code-container {
+  border: 1px solid var(--term-green);
+  background: #050505;
+  box-shadow: 0 0 10px rgba(74, 246, 38, 0.1);
+}
+
+.term-code-block {
+  padding: 16px;
+  color: var(--term-green);
+  overflow-x: auto;
+}
+
+/* ── Buttons ── */
+.term-btn {
+  background: transparent;
+  border: 1px solid var(--term-green);
+  color: var(--term-green);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  padding: 4px 10px;
+  cursor: pointer;
+  transition: all 0.1s;
+}
+
+.term-btn:hover {
+  background: var(--term-green);
+  color: #000;
+}
+
+.term-btn:active {
+  transform: translateY(1px);
+}
+
+/* ── Links ── */
+.term-footer-links {
+  margin-top: 16px;
+  text-align: center;
+}
+
+.term-link {
+  color: #444;
+  text-decoration: none;
+  font-size: 11px;
+}
+
+.term-link:hover {
+  color: var(--term-text);
+  text-decoration: underline;
+}
+
+/* ── Welcome State ── */
+.welcome {
+  padding: 40px 0;
+}
+
+.welcome__title {
+  color: var(--term-green);
+  font-size: 24px;
+  margin-bottom: 16px;
+}
+
+.welcome__subtitle {
+  color: #666;
+  margin-bottom: 24px;
+}
+
+.welcome__list {
+  list-style: none;
+}
+
+.welcome__list li::before {
+  content: "> ";
+  color: var(--term-green);
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #000;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #333;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #444;
+}

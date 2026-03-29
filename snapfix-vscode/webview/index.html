@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'none'; style-src {{cspSource}} 'unsafe-inline'; img-src {{cspSource}} https:; script-src 'nonce-pylogai';" />
+  <link rel="stylesheet" href="{{stylesUri}}" />
+  <title>PyLogAI Analysis</title>
+</head>
+<body>
+  <div class="container">
+    {{content}}
+    <footer class="footer">
+      Powered by <strong>PyLogAI</strong> · Privacy-first local AI
+    </footer>
+  </div>
+  <script nonce="pylogai">
+    (function() {
+      // Handle the Copy Button interaction
+      document.addEventListener('click', e => {
+        const copyBtn = e.target.closest('#copy-button');
+        if (copyBtn) {
+          const text = copyBtn.getAttribute('data-text');
+          navigator.clipboard.writeText(text).then(() => {
+            const originalText = copyBtn.innerHTML;
+            copyBtn.innerHTML = '[ OK_COPIED ]';
+            copyBtn.classList.add('term-btn--active');
+            
+            setTimeout(() => {
+              copyBtn.innerHTML = originalText;
+              copyBtn.classList.remove('term-btn--active');
+            }, 1500);
+          });
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

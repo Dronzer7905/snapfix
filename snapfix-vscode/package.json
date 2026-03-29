@@ -1,0 +1,116 @@
+{
+  "name": "snapfix",
+  "displayName": "Snapfix — AI Error Analysis Engine",
+  "description": "Premium AI-powered Python error analyzer with plain-English fixes and actionable prevention tips.",
+  "version": "0.2.0",
+  "publisher": "snapfix",
+  "icon": "images/icon.png",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Dronzer7905/snapfix"
+  },
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "enabledApiProposals": [
+    "terminalDataWriteEvent"
+  ],
+  "categories": [
+    "Debuggers",
+    "Other"
+  ],
+  "keywords": [
+    "python",
+    "debugging",
+    "ai",
+    "traceback",
+    "snapfix",
+    "ollama"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "snapfix.showPanel",
+        "title": "Snapfix: Show Analysis Panel"
+      },
+      {
+        "command": "snapfix.restartServer",
+        "title": "Snapfix: Restart Analysis Server"
+      },
+      {
+        "command": "snapfix.clearCache",
+        "title": "Snapfix: Clear Analysis Cache"
+      },
+      {
+        "command": "snapfix.analyzeClipboard",
+        "title": "Snapfix: Analyze Clipboard Traceback"
+      }
+    ],
+    "configuration": {
+      "title": "Snapfix",
+      "properties": {
+        "snapfix.serverPort": {
+          "type": "number",
+          "default": 7842,
+          "description": "Port the Snapfix FastAPI server listens on."
+        },
+        "snapfix.serverHost": {
+          "type": "string",
+          "default": "127.0.0.1",
+          "description": "Host the Snapfix FastAPI server binds to."
+        },
+        "snapfix.autoAnalyze": {
+          "type": "boolean",
+          "default": true,
+          "description": "Automatically analyze tracebacks as they appear in the terminal."
+        },
+        "snapfix.pythonPath": {
+          "type": "string",
+          "default": "python",
+          "description": "Path to the Python executable used to spawn the Snapfix server."
+        }
+      }
+    },
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "snapfix-sidebar",
+          "title": "Snapfix",
+          "icon": "images/icon-activity.svg"
+        }
+      ]
+    },
+    "views": {
+      "snapfix-sidebar": [
+        {
+          "type": "webview",
+          "id": "snapfix.panel",
+          "name": "Analysis"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "compile": "webpack --mode development",
+    "package": "webpack --mode production --devtool hidden-source-map",
+    "watch": "webpack --mode development --watch",
+    "lint": "eslint src --ext ts"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "@types/vscode": "1.85.0",
+    "@typescript-eslint/eslint-plugin": "^7.0.0",
+    "@typescript-eslint/parser": "^7.0.0",
+    "eslint": "^8.57.0",
+    "prettier": "^3.2.0",
+    "ts-loader": "^9.5.0",
+    "typescript": "^5.3.0",
+    "webpack": "^5.90.0",
+    "webpack-cli": "^5.1.0"
+  }
+}

@@ -1,0 +1,38 @@
+# Snapfix Unified Git Ignore
+
+# [Python]
+venv/
+.venv/
+env/
+.env
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+dist/
+build/
+*.egg-info/
+*.spec
+
+# [Node/JS]
+node_modules/
+dist/
+out/
+.vscode-test/
+*.vsix
+
+# [Snapfix Specific]
+.snapfix/
+data/
+snapfix.db
+logs/
+
+# [System]
+.DS_Store
+Thumbs.db
+*.swp
+*.bak
+.idea/
+.vscode/
