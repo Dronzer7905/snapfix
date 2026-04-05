@@ -1,3 +1,9 @@
-<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM12 20C7.59 20 4 16.41 4 12C4 7.59 7.59 4 12 4C16.41 4 20 7.59 20 12C20 16.41 16.41 20 12 20ZM11 7H13V13H11V7ZM11 15H13V17H11V15Z" fill="white"/>
+<svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="80" height="80" rx="20" fill="#0B0E14"/>
+  <rect x="10" y="20" width="36" height="6" rx="3" fill="white" opacity="0.9"/>
+  <rect x="10" y="32" width="25" height="6" rx="3" fill="white" opacity="0.55"/>
+  <rect x="10" y="44" width="30" height="6" rx="3" fill="white" opacity="0.3"/>
+  <path d="M65,14 L56,24 L50,19 L41,29" stroke="#00C896" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <circle cx="65" cy="14" r="5" fill="#00C896"/>
+  <circle cx="41" cy="29" r="3.5" fill="#00C896" opacity="0.5"/>
 </svg>
